@@ -208,7 +208,7 @@ This device runs Realtek ALC668, layout-id 29.
   - _Memory32Fixed (ReadWrite, 0xFED00000, 0x00000400)_ (the active memory of `HPET`, it's same with every computers).
   - _IRQNoFlags () {2, 8, 11, 15}_ (4 IRQs have to be added).
 
-- So with every DSDTs, we only need delete all contents of `Device HPET` and replace by:
+- So with every DSDTs, we only need to delete all contents of `Device HPET` and replace by:
 
 ```sh
     Device (HPET)
