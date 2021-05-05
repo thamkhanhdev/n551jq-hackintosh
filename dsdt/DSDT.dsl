@@ -8553,49 +8553,15 @@ DefinitionBlock ("", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 PMES,   1
             }
 
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, NotSerialized)
             {
-                If ((Arg2 == Zero))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
                 {
-                    Return (Buffer (One)
-                    {
-                         0x03                                             // .
-                    })
-                }
-
-                Return (Package (0x0C)
-                {
-                    "AAPL,slot-name",
-                    Buffer (0x09)
-                    {
-                        "Built in"
-                    },
-
-                    "layout-id",
-                    Buffer (0x04)
-                    {
-                         0x03, 0x00, 0x00, 0x00                           // ....
-                    },
-
-                    "device_type",
-                    Buffer (0x11)
-                    {
-                        "Audio Controller"
-                    },
-
-                    "built-in",
-                    Buffer (One)
-                    {
-                         0x00                                             // .
-                    },
-
-                    "PinConfigurations",
-                    Buffer (Zero){},
-                    "hda-gfx",
-                    Buffer (0x0A)
-                    {
-                        "onboard-1"
-                    }
+                    "layout-id", Buffer() { 29, 0x00, 0x00, 0x00 },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "PinConfigurations", Buffer() { },
+                    //"MaximumBootBeepVolume", 77,
                 })
             }
 
