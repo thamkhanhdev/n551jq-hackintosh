@@ -373,3 +373,5 @@ After patching DSDT file, need compiling its to .aml format and put it to EFI/OC
                 <key>csr-active-config</key>
         .....
 ```
+
+- Active LILU and ALC kexts by adding arguments `-lilubeta -alcbeta` to `boot-args`
