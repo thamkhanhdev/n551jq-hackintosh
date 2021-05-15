@@ -393,6 +393,12 @@ For this guide we'll be using the [USBmap tool][usb_map] (opens new window) from
 
 - Activate USBMap.kext in config.plist
 
+## 3. Wifi
+
+Put HS80211Family.kext and AirPortAtheros40-9462.kext to EFI/OC/Kexts. Enable its in config.plist
+
+> Ensure that it uses pci0168c,0x0034 with AR9462. 0x0032 with AR9485
+
 ***
 
 [usb_map]:<https://github.com/corpnewt/USBMap/>
